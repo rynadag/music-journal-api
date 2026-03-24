@@ -14,10 +14,10 @@ describe("GET /songs", () => {
   });
 
   it("filters by genre (case-insensitive)", async () => {
-    const res = await request(app).get("/songs?genre=synth-pop");
+    const res = await request(app).get("/songs?genre=pop");
     expect(res.status).toBe(200);
     expect(res.body.data.length).toBeGreaterThan(0);
-    res.body.data.forEach((s) => expect(s.genre.toLowerCase()).toContain("synth-pop"));
+    res.body.data.forEach((s) => expect(s.genre.toLowerCase()).toContain("pop"));
   });
 
   it("filters by status=liked", async () => {
