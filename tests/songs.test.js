@@ -14,10 +14,10 @@ describe("GET /songs", () => {
   });
 
   it("filters by genre (case-insensitive)", async () => {
-    const res = await request(app).get("/songs?genre=pop");
+    const res = await request(app).get("/songs?genre=synth-pop");
     expect(res.status).toBe(200);
     expect(res.body.data.length).toBeGreaterThan(0);
-    res.body.data.forEach((s) => expect(s.genre.toLowerCase()).toContain("pop"));
+    res.body.data.forEach((s) => expect(s.genre.toLowerCase()).toContain("synth-pop"));
   });
 
   it("filters by status=liked", async () => {
@@ -33,10 +33,10 @@ describe("GET /songs", () => {
   });
 
   it("filters by artist (partial match)", async () => {
-    const res = await request(app).get("/songs?artist=queen");
+    const res = await request(app).get("/songs?artist=lorde");
     expect(res.status).toBe(200);
     expect(res.body.data).toHaveLength(1);
-    expect(res.body.data[0].artist).toBe("Queen");
+    expect(res.body.data[0].artist).toBe("Lorde");
   });
 });
 
