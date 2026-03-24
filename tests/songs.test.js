@@ -33,10 +33,10 @@ describe("GET /songs", () => {
   });
 
   it("filters by artist (partial match)", async () => {
-    const res = await request(app).get("/songs?artist=queen");
+    const res = await request(app).get("/songs?artist=lorde");
     expect(res.status).toBe(200);
     expect(res.body.data).toHaveLength(1);
-    expect(res.body.data[0].artist).toBe("Queen");
+    expect(res.body.data[0].artist).toBe("Lorde");
   });
 });
 

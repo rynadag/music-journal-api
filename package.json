@@ -19,6 +19,6 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testPathPattern": "tests/"
+    "testMatch": ["**/tests/**/*.test.js"]
   }
 }

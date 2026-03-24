@@ -34,7 +34,7 @@ const SEED_SONGS = [
     genre: "Art Pop",
     releaseYear: 2023,
     durationSeconds: 433,
-    status: "liked",
+    status: "neutral",
     createdAt: "2024-01-03T00:00:00.000Z",
     updatedAt: "2024-01-03T00:00:00.000Z",
   },
