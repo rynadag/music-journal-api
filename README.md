@@ -2,7 +2,7 @@
 
 > A RESTful API for logging, reviewing, and tracking personal music listening history.
 
-![CI & Security Scan](https://github.com/YOUR_USERNAME/music-journal-api/actions/workflows/ci-cs.yml/badge.svg)
+![CI & Security Scan](https://github.com/rynadag/music-journal-api/actions/workflows/ci-cs.yml/badge.svg)
 ![Node.js](https://img.shields.io/badge/node-20.x-brightgreen)
 ![Express](https://img.shields.io/badge/express-4.x-lightgrey)
 ![License](https://img.shields.io/badge/license-MIT-blue)
@@ -67,6 +67,12 @@
 
 ## Getting Started
 
+### Environment Variables
+
+Create a `.env` file in the root directory:
+```env
+PORT=3000
+
 ### Prerequisites
 
 Choose one of the following:
@@ -78,7 +84,7 @@ Choose one of the following:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/music-journal-api.git
+git clone https://github.com/rynadag/music-journal-api.git
 cd music-journal-api
 
 # 2. Build and start the container
@@ -104,7 +110,6 @@ docker-compose down
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/music-journal-api.git
 cd music-journal-api
 
 # 2. Install dependencies
@@ -369,26 +374,26 @@ curl "http://localhost:3000/songs?status=liked"
 curl -X POST http://localhost:3000/songs \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "Starboy",
-    "artist": "The Weeknd",
-    "genre": "Pop",
-    "album": "Starboy",
-    "releaseYear": 2016,
+    "title": "Stonemilker",
+    "artist": "Björk",
+    "genre": "Folktronica",
+    "album": "Vulnicura",
+    "releaseYear": 2015,
     "status": "liked"
   }'
 
 # Partial update — change status only
 curl -X PATCH http://localhost:3000/songs/<songId> \
   -H "Content-Type: application/json" \
-  -d '{"status": "disliked"}'
+  -d '{"status": "neutral"}'
 
 # Add a review
 curl -X POST http://localhost:3000/songs/<songId>/reviews \
   -H "Content-Type: application/json" \
   -d '{
-    "reviewer": "Alice",
-    "rating": 9,
-    "comment": "Incredibly catchy, perfect for late-night drives.",
+    "reviewer": "Rynark",
+    "rating": 10,
+    "comment": "A total gut-punch of a masterpiece! Björk captures the pain of a fading connection with such raw, symphonic precision.",
     "listenedAt": "2026-03-14"
   }'
 
@@ -396,13 +401,13 @@ curl -X POST http://localhost:3000/songs/<songId>/reviews \
 curl -X POST http://localhost:3000/songs/<songId>/logs \
   -H "Content-Type: application/json" \
   -d '{
-    "listener": "Alice",
-    "mood": "nostalgic",
-    "device": "laptop"
+    "listener": "Rynark",
+    "mood": "melancholic",
+    "device": "headphones"
   }'
 
 # Get all listen logs filtered by listener
-curl "http://localhost:3000/logs?listener=alice"
+curl "http://localhost:3000/logs?listener=ryan"
 
 # Delete a song (cascades to its reviews and logs)
 curl -X DELETE http://localhost:3000/songs/<songId>
